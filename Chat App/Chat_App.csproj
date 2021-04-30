@@ -27,6 +27,7 @@
     <None Remove="Fonts\Lato-SemiboldItalic.ttf" />
     <None Remove="Fonts\Lato-Thin.ttf" />
     <None Remove="Fonts\Lato-ThinItalic.ttf" />
+    <None Remove="Images\Backgrounds\emoji-background.png" />
     <None Remove="Images\Logo\logo-small.png" />
   </ItemGroup>
 
@@ -79,6 +80,7 @@
     <Content Include="Fonts\Lato-Thin.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Images\Backgrounds\emoji-background.png" />
     <Resource Include="Fonts\Lato-ThinItalic.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>

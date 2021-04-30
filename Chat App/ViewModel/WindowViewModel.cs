@@ -25,6 +25,11 @@ namespace Chat_App
         /// the radius of the edges of the window
         /// </summary>
         private int mWindowRadius = 10;
+
+        /// <summary>
+        /// The last known dock position
+        /// </summary>
+        private WindowDockPosition mDockPosition = WindowDockPosition.Undocked;
         #endregion
 
         #region Constructor
@@ -33,6 +38,7 @@ namespace Chat_App
         /// </summary>
         public WindowViewModel(Window window)
         {
+            // turning the current window into a variable
             mWindow = window;
 
             // Listen out for the window resizing
@@ -46,13 +52,14 @@ namespace Chat_App
                 OnPropertyChanged(nameof(WindowCornerRadius));
             };
 
-            // Create commands
+            // Create commands for the three buttons in the top right and on clicking the logo
             MinimizeCommand = new RelayCommand(() => mWindow.WindowState = WindowState.Minimized);
             MaximizeCommand = new RelayCommand(() => mWindow.WindowState ^= WindowState.Maximized);
             CloseCommand = new RelayCommand(() => mWindow.Close());
             MenuCommand = new RelayCommand(() => SystemCommands.ShowSystemMenu(mWindow, mWindow.PointToScreen(Mouse.GetPosition(mWindow))));
 
-            // fix window resize issue
+            // fix window resize issue the WindowResizer essentially finds the max size of the monitor
+            // and makes sure the window doesn't go beyond that or over the toolbar
             var resizer = new WindowResizer(mWindow);
         }
         #endregion
@@ -69,11 +76,15 @@ namespace Chat_App
         /// </summary>
         public double WindowMinimumHeight { get; set; } = 400;
 
+        /// <summary>
+        /// True if the window should be borderless because it is docked or maximized
+        /// </summary>
+        public bool Borderless { get { return (mWindow.WindowState == WindowState.Maximized || mDockPosition != WindowDockPosition.Undocked); } }
 
         /// <summary>
         /// The size of the resize border around the window
         /// </summary>
-        public int ResizeBorder { get; set; } = 6;
+        public int ResizeBorder { get { return Borderless ? 0 : 6; } }
 
         /// <summary>
         /// The size of the resize berder around the window, taking into account the outer margin
@@ -83,7 +94,7 @@ namespace Chat_App
         /// <summary>
         /// The padding of the inner content of the main window
         /// </summary>
-        public Thickness InnerContentPadding { get { return new Thickness(ResizeBorder); } }
+        public Thickness InnerContentPadding { get; set; } = new Thickness(0);
 
         /// <summary>
         /// the margin around the window to allow for a drop shadow
@@ -135,6 +146,12 @@ namespace Chat_App
         /// the height of the title bar / caption of the window
         /// </summary>
         public GridLength TitleHeightGridLength   { get { return new GridLength(TitleHeight + ResizeBorder); } }
+
+        /// <summary>
+        /// The current page of the application
+        /// </summary>
+        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Login;
+
         #endregion
 
         #region Commands
