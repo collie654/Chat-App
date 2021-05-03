@@ -106,6 +106,7 @@
                                    x:Name="placeholder"
                                    FontFamily="{StaticResource LatoThin}"
                                    Padding="{TemplateBinding Padding}"
+                                   Visibility="{TemplateBinding local:HasTextProperty.Value, Converter={local:BooleanToVisiblityConverter}}"
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                                    Foreground="{StaticResource ForegroundVeryDarkBrush}"
