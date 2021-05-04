@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\FontAwesome.otf" />
     <None Remove="Fonts\Lato-Black.ttf" />
     <None Remove="Fonts\Lato-BlackItalic.ttf" />
     <None Remove="Fonts\Lato-Bold.ttf" />
@@ -80,6 +81,9 @@
     <Content Include="Fonts\Lato-Thin.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Fonts\FontAwesome.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\Backgrounds\emoji-background.png" />
     <Resource Include="Fonts\Lato-ThinItalic.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
