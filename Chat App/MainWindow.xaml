@@ -135,7 +135,9 @@
 
             <!-- Side Menu-->
             <local:SideMenuControl>
-                
+
+                <local:ChatListControl/>
+
             </local:SideMenuControl>
             
         </Grid>
