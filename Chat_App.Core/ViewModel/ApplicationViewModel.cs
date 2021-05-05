@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Chat_App.Core.ViewModel
+namespace Chat_App.Core
 {
     public class ApplicationViewModel: BaseViewModel
     {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Chat_App.Core;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,21 @@ namespace Chat_App
     /// </summary>
     public partial class App : Application
     {
+        /// <summary>
+        /// custom startup so we load our IoC immediately before anything else
+        /// </summary>
+        /// <param name="e"></param>
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            // let the base application do what it needs
+            base.OnStartup(e);
+
+            // setup IoC
+            IoC.Setup();
+
+            // show the main window
+            Current.MainWindow = new MainWindow();
+            Current.MainWindow.Show();
+        }
     }
 }
