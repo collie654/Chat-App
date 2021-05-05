@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Chat_App
+namespace Chat_App.Core
 {
     /// <summary>
     /// a view model for the overview chat list 

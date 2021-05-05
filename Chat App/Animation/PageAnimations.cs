@@ -18,7 +18,7 @@ namespace Chat_App
         /// <param name="page"> page to animate </param>
         /// <param name="seconds"> the time the animation will take </param>
         /// <returns></returns>
-        public static async Task SlideAndFadeInFromRight(this Page page, float seconds)
+        public static async Task SlideAndFadeInFromRightAsync(this Page page, float seconds)
         {
             // create the storyboard
             var sb = new Storyboard();
@@ -45,7 +45,7 @@ namespace Chat_App
         /// <param name="page"> page to animate </param>
         /// <param name="seconds"> the time the animation will take </param>
         /// <returns></returns>
-        public static async Task SlideAndFadeOutToLeft(this Page page, float seconds)
+        public static async Task SlideAndFadeOutToLeftAsync(this Page page, float seconds)
         {
             // create the storyboard
             var sb = new Storyboard();

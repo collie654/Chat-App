@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Chat_App
+namespace Chat_App.Core
 {
     /// <summary>
     /// the design-time data for a <see cref="ChatListViewModel"/>

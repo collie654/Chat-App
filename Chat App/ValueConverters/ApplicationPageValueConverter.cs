@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Chat_App.Core;
+using System;
 using System.Diagnostics;
 using System.Globalization;
 
@@ -19,6 +20,8 @@ namespace Chat_App
                     return new LoginPage();
                 case ApplicationPage.Chat:
                     return new ChatPage();
+                case ApplicationPage.Register:
+                    return new RegisterPage();
                 default:
                     Debugger.Break();
                     return null;

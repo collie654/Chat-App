@@ -1,4 +1,4 @@
-﻿namespace Chat_App
+﻿namespace Chat_App.Core
 {
     /// <summary>
     /// a view model for each chat list item in the overview chat list

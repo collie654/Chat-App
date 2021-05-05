@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
-namespace Chat_App
+namespace Chat_App.Core
 {
 
     /// <summary>
@@ -34,6 +34,11 @@ namespace Chat_App
         /// </summary>
         public ICommand LoginCommand { get; set; }
 
+        /// <summary>
+        /// the command to move to the register page
+        /// </summary>
+        public ICommand RegisterCommand { get; set; }
+
         #endregion
 
         #region Constructor
@@ -43,7 +48,9 @@ namespace Chat_App
         public LoginViewModel()
         {
 
-            LoginCommand = new RelayParameterizedCommand(async (parameter) => await Login(parameter));
+            LoginCommand = new RelayParameterizedCommand(async (parameter) => await LoginAsync(parameter));
+
+            RegisterCommand = new RelayCommand(async () => await RegisterAsync());
 
         }
 
@@ -54,15 +61,27 @@ namespace Chat_App
         /// </summary>
         /// <param name="parameter"> the <see cref="SecureString"/> passed in from the view for the users password </param>
         /// <returns></returns>
-        public async Task Login(object parameter)
+        public async Task LoginAsync(object parameter)
         {
-            await RunCommand(() => this.LoginIsRunning, async () =>
+            await RunCommmandAsync(() => this.LoginIsRunning, async () =>
             {
                 await Task.Delay(5000);
 
                 // IMPORTANT: never store unsecure passowrd in variable like this
                 var pass = (parameter as IHavePassword).SecurePassword.Unsecure();
             });
+        }
+
+        /// <summary>
+        /// Takes the user to the registerPage
+        /// </summary>
+        /// <returns></returns>
+        public async Task RegisterAsync()
+        {
+            // TODO: Go to register page
+
+
+            await Task.Delay(1);
         }
     }
 }

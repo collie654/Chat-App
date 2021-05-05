@@ -17,7 +17,7 @@ namespace Chat_App
         /// <summary>
         /// a single static instance of this value converter this will be called when used in XAML
         /// </summary>
-        private static T mConverter = null;
+        private static T Converter = null;
 
         #endregion
 
@@ -30,7 +30,7 @@ namespace Chat_App
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
             // return mConverter, if it doesn't exist return an mConverter of the type passed in
-            return mConverter ?? (mConverter = new T());
+            return Converter ?? (Converter = new T());
         }
         #endregion
 

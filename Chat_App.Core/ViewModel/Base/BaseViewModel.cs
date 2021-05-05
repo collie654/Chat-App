@@ -3,12 +3,11 @@ using System.ComponentModel;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace Chat_App
+namespace Chat_App.Core
 {
     /// <summary>
     /// a base view model that fires property changed events as needed
     /// </summary>
-
     public class BaseViewModel : INotifyPropertyChanged
     {
         /// <summary>
@@ -37,7 +36,7 @@ namespace Chat_App
         /// <param name="updatingFlag">the boolean property flag defining if the command is already running </param>
         /// <param name="action"> the action to run if the command is not already running </param>
         /// <returns></returns>
-        protected async Task RunCommand(Expression<Func<bool>> updatingFlag, Func<Task> action)
+        protected async Task RunCommmandAsync(Expression<Func<bool>> updatingFlag, Func<Task> action)
         {
             // check if the flag property is true (meaning the function is already running)
             if (updatingFlag.GetPropertyValue())

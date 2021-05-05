@@ -5,7 +5,7 @@ using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Chat_App
+namespace Chat_App.Core
 {
     /// <summary>
     /// an interface for a class that can provide a secure password
